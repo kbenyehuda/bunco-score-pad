@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Bunco Score Pad</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="app-header">
+  <h1>🎲 Bunco Score Pad</h1>
+  <button id="unlockHeaderBtn" class="link-btn" hidden>Support &amp; Unlock ✨</button>
+</header>
+
+<div id="supportBanner" class="banner" hidden>
+  <p>Enjoying this? Support the maker &amp; unlock a printable end-of-night summary.</p>
+  <div class="banner-actions">
+    <a id="bannerPayLink" href="#" target="_blank" rel="noopener" class="btn btn-primary">Unlock for <span id="bannerPrice"></span></a>
+    <button type="button" id="bannerCodeBtn" class="btn btn-secondary">I have a code</button>
+  </div>
+  <button type="button" id="bannerDismiss" class="icon-btn banner-dismiss" aria-label="Dismiss">✕</button>
+</div>
+
+<div id="codeEntry" class="banner" hidden>
+  <label for="unlockCodeInput">Enter your unlock code</label>
+  <div class="banner-actions">
+    <input id="unlockCodeInput" type="text" placeholder="CODE" autocomplete="off" autocapitalize="characters">
+    <button type="button" id="unlockCodeSubmit" class="btn btn-primary">Unlock</button>
+  </div>
+  <p id="unlockCodeError" class="error-text" hidden>That code didn't work. Check it and try again.</p>
+  <button type="button" id="codeEntryCancel" class="icon-btn banner-dismiss" aria-label="Cancel">✕</button>
+</div>
+
+<div id="unlockedToast" class="toast" hidden>✅ Unlocked — thanks for the support!</div>
+
+<main id="app">
+
+  <section id="screen-setup" class="screen">
+
+    <div id="resumeSection" hidden>
+      <div class="card">
+        <p>You have a game in progress.</p>
+        <button type="button" id="resumeGameBtn" class="btn btn-primary btn-large">Resume Game</button>
+        <button type="button" id="newGameInsteadBtn" class="btn btn-link">Start a new game instead</button>
+      </div>
+    </div>
+
+    <div id="setupSection">
+      <h2>New Game</h2>
+      <div class="card">
+        <label>Number of tables
+          <input type="number" id="numTables" min="1" max="12" value="2" inputmode="numeric">
+        </label>
+        <label>Players per table
+          <input type="number" id="playersPerTable" min="2" max="6" value="4" inputmode="numeric">
+        </label>
+        <label>Number of rounds
+          <input type="number" id="numRounds" min="1" max="12" value="6" inputmode="numeric">
+        </label>
+        <button type="button" id="generateRosterBtn" class="btn btn-primary btn-large">Next: Name Players</button>
+      </div>
+    </div>
+
+    <div id="rosterSection" hidden>
+      <h2>Players</h2>
+      <div id="rosterTables"></div>
+      <div class="card sticky-actions">
+        <button type="button" id="startGameBtn" class="btn btn-primary btn-large">Start Game</button>
+        <button type="button" id="backToSetupBtn" class="btn btn-link">← Back</button>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="screen-round" class="screen" hidden>
+
+    <div class="round-header">
+      <button type="button" id="prevRoundBtn" class="icon-btn" aria-label="Previous round">‹</button>
+      <h2 id="roundTitle">Round 1 of 6</h2>
+      <button type="button" id="nextRoundNavBtn" class="icon-btn" aria-label="Next round">›</button>
+    </div>
+    <p id="roundTargetHint" class="hint"></p>
+
+    <div id="tablesContainer"></div>
+
+    <div class="card">
+      <button type="button" id="advanceBtn" class="btn btn-primary btn-large">Next Round →</button>
+    </div>
+
+    <div class="card">
+      <button type="button" id="toggleLeaderboardBtn" class="btn btn-secondary btn-large">📊 Show Leaderboard</button>
+      <div id="leaderboardPanel" hidden>
+        <h3>Leaderboard</h3>
+        <ol id="leaderboardList" class="leaderboard-list"></ol>
+      </div>
+    </div>
+
+    <div class="card">
+      <button type="button" id="resetGameBtn" class="btn btn-link">End Game / Reset</button>
+    </div>
+
+  </section>
+
+  <section id="screen-final" class="screen" hidden>
+    <h2>🏁 Final Standings</h2>
+    <div id="finalStandings" class="card"></div>
+    <div id="finalStats" class="card"></div>
+    <div class="card">
+      <button type="button" id="printSummaryBtn" class="btn btn-primary btn-large" disabled>🖨️ Print Summary</button>
+      <p id="printLockedNote" class="hint">Unlock (see banner above) to enable printing a summary.</p>
+    </div>
+    <div class="card">
+      <button type="button" id="newGameFromFinalBtn" class="btn btn-secondary btn-large">Start New Game</button>
+    </div>
+  </section>
+
+</main>
+
+<div id="printArea" class="print-only"></div>
+
+<footer class="app-footer">
+  <a href="https://example.com/more-little-tools" target="_blank" rel="noopener">more little tools like this →</a>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
