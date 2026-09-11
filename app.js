@@ -23,12 +23,10 @@ const RULES = {
  * launch. This is honor-system; there is no server-side check.
  * ============================================================ */
 const MONETIZATION = {
-  STRIPE_PAYMENT_LINK: "https://buy.stripe.com/REPLACE_WITH_YOUR_PAYMENT_LINK",
+  STRIPE_PAYMENT_LINK: "https://buy.stripe.com/6oU6oJ9hZbxb11Efdv4wM00",
   UNLOCK_CODE: "BUNCOVIP",       // simple fallback unlock code, case-insensitive
   PRICE_DISPLAY: "$1.99",
 };
-
-const CROSS_PROMO_URL = "https://example.com/more-little-tools"; // placeholder — swap once you have a hub page
 
 /* ============================================================
  * STORAGE

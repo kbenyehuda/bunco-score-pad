@@ -64,9 +64,3 @@ impulse buy:
 3. Optionally change the fallback code in `MONETIZATION.UNLOCK_CODE`
    (currently `BUNCOVIP`) to whatever you want to hand out manually (e.g.
    to comps, testers, or anyone who pays you outside of Stripe).
-
-## Cross-promotion footer
-
-The footer link ("more little tools like this →") points to a placeholder
-URL (`CROSS_PROMO_URL` in `app.js`). Update it once you have a hub page for
-your other tools.

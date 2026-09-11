@@ -323,16 +323,6 @@ select {
 .standings-list li.is-winner { font-weight: 800; color: var(--color-primary-dark); }
 .stat-line { display: flex; justify-content: space-between; padding: 0.4rem 0; }
 
-/* Footer */
-.app-footer {
-  text-align: center;
-  padding: 0.9rem;
-  font-size: 0.8rem;
-  border-top: 1px solid var(--color-border);
-  background: var(--color-surface);
-}
-.app-footer a { color: var(--color-primary); text-decoration: none; font-weight: 600; }
-
 /* Print */
 .print-only { display: none; }
 @media print {
